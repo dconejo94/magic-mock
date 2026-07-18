@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Pre-push quality gate: full verification (build, typecheck, lint, format, tests).
+set -euo pipefail
+
+echo "[pre-push] npm run verify"
+npm run --silent verify
+
+echo "[pre-push] OK"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Pre-commit quality gate: formatting and lint on the staged tree.
+set -euo pipefail
+
+echo "[pre-commit] prettier --check"
+npm run --silent format:check
+
+echo "[pre-commit] eslint"
+npm run --silent lint
+
+echo "[pre-commit] OK"
