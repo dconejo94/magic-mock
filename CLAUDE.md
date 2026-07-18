@@ -82,6 +82,9 @@ appropriate); committed with a conventional message. Anything less is not done.
 ## Git workflow (GitHub Flow)
 
 - `main` is always deployable; feature branches off `main`.
+- **Branch naming** mirrors Conventional Commit types:
+  `feat/<short-kebab-description>`, `fix/…`, `docs/…`, `chore/…`,
+  `refactor/…` (e.g. `feat/engine-adapter-api`). One branch per feature.
 - **Conventional Commits**: `feat(scope): …`, `fix: …`, `docs: …`, `chore: …`,
   `test: …`, `refactor: …`. Small, focused commits.
 - Open a PR; CI must be green; squash-merge; delete the branch.
