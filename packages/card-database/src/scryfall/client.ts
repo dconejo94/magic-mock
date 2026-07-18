@@ -1,5 +1,11 @@
 import { CardNotFoundError, ScryfallApiError } from '../errors.js';
-import type { ScryfallCard, ScryfallError, ScryfallList } from './types.js';
+import type {
+  ScryfallBulkData,
+  ScryfallBulkDataList,
+  ScryfallCard,
+  ScryfallError,
+  ScryfallList,
+} from './types.js';
 
 export interface ScryfallClientOptions {
   /** Base URL; override to point at a test double. */
@@ -71,6 +77,16 @@ export class ScryfallClient {
   /** GET /cards/{id} — lookup by Scryfall print id. */
   async getCardById(id: string): Promise<ScryfallCard> {
     return this.getJson<ScryfallCard>(`/cards/${encodeURIComponent(id)}`);
+  }
+
+  /** GET /bulk-data — metadata for Scryfall's daily bulk-data exports. */
+  async getBulkDataList(): Promise<ScryfallBulkDataList> {
+    return this.getJson<ScryfallBulkDataList>('/bulk-data');
+  }
+
+  /** GET /bulk-data/{type} — metadata for one bulk export, e.g. "oracle_cards". */
+  async getBulkDataByType(type: string): Promise<ScryfallBulkData> {
+    return this.getJson<ScryfallBulkData>(`/bulk-data/${encodeURIComponent(type)}`);
   }
 
   /** GET /cards/search — full Scryfall search syntax; returns one page. */

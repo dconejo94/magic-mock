@@ -120,7 +120,7 @@ appropriate); committed with a conventional message. Anything less is not done.
 ## Long-term roadmap
 
 1. ✅ Card Database Service (Scryfall client, cache, domain model)
-2. Scryfall bulk-data import + offline card index (prereq for vision at scale)
+2. ✅ Scryfall bulk-data import + offline card index (prereq for vision at scale)
 3. Engine Service: JVM wrapper embedding XMage; Engine Adapter API
    (create game / legal actions / propose action / state views / action log)
 4. Match Service + Networking Gateway (WebSocket, action-log fan-out, reconnect)

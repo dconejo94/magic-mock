@@ -56,6 +56,29 @@ export interface ScryfallList {
   readonly data: readonly ScryfallCard[];
 }
 
+export type ScryfallBulkDataType =
+  'oracle_cards' | 'unique_artwork' | 'default_cards' | 'all_cards' | 'rulings';
+
+export interface ScryfallBulkData {
+  readonly object: 'bulk_data';
+  readonly id: string;
+  /** Usually a ScryfallBulkDataType; Scryfall may add new export types. */
+  readonly type: string;
+  readonly updated_at: string;
+  readonly name: string;
+  readonly description: string;
+  readonly size: number;
+  readonly download_uri: string;
+  readonly content_type: string;
+  readonly content_encoding: string;
+}
+
+export interface ScryfallBulkDataList {
+  readonly object: 'list';
+  readonly has_more: boolean;
+  readonly data: readonly ScryfallBulkData[];
+}
+
 export interface ScryfallError {
   readonly object: 'error';
   readonly code: string;
