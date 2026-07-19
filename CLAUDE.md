@@ -110,8 +110,9 @@ appropriate); committed with a conventional message. Anything less is not done.
   env-var gate; respect Scryfall's rate/User-Agent/caching rules (ADR-0002).
 - Do not add dependencies casually — prefer the standard library; justify each new
   dependency in the commit message.
-- Do not add AI-attribution footers or session links ("Generated with …",
-  `Claude-Session: …`) to PR bodies, commit messages, or any repository content.
+- Do not add AI-attribution footers, co-author trailers, or session links
+  ("Generated with …", `Co-Authored-By: Claude …`, `Claude-Session: …`) to PR
+  bodies, commit messages, or any repository content.
 
 ## Project constraints
 
