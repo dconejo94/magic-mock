@@ -13,6 +13,13 @@ export class CardNotFoundError extends CardDatabaseError {
   }
 }
 
+/** A fuzzy name matched multiple cards equally well; refusing to guess. */
+export class AmbiguousCardNameError extends CardDatabaseError {
+  constructor(readonly query: string) {
+    super(`Card name is ambiguous: ${query}`);
+  }
+}
+
 /** Scryfall returned an unexpected error response. */
 export class ScryfallApiError extends CardDatabaseError {
   constructor(

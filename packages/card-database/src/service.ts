@@ -1,6 +1,7 @@
 import type { Cache } from './cache/cache.js';
 import { InMemoryTtlCache } from './cache/cache.js';
 import type { Card } from './domain/card.js';
+import type { CardResolver } from './domain/resolver.js';
 import { mapScryfallCard } from './scryfall/mapper.js';
 import type { ScryfallClient } from './scryfall/client.js';
 
@@ -29,7 +30,7 @@ function normalizeName(name: string): string {
  * cache card data for at least 24 hours). Exposes only domain types — no
  * Scryfall wire types leak past this boundary — and contains no game logic.
  */
-export class CardDatabaseService {
+export class CardDatabaseService implements CardResolver {
   private readonly client: ScryfallClient;
   private readonly cache: Cache<Card>;
 

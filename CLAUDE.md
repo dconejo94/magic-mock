@@ -82,6 +82,9 @@ appropriate); committed with a conventional message. Anything less is not done.
 ## Git workflow (GitHub Flow)
 
 - `main` is always deployable; feature branches off `main`.
+- **Branch naming** mirrors Conventional Commit types:
+  `feat/<short-kebab-description>`, `fix/…`, `docs/…`, `chore/…`,
+  `refactor/…` (e.g. `feat/engine-adapter-api`). One branch per feature.
 - **Conventional Commits**: `feat(scope): …`, `fix: …`, `docs: …`, `chore: …`,
   `test: …`, `refactor: …`. Small, focused commits.
 - Open a PR; CI must be green; squash-merge; delete the branch.
@@ -107,6 +110,9 @@ appropriate); committed with a conventional message. Anything less is not done.
   env-var gate; respect Scryfall's rate/User-Agent/caching rules (ADR-0002).
 - Do not add dependencies casually — prefer the standard library; justify each new
   dependency in the commit message.
+- Do not add AI-attribution footers, co-author trailers, or session links
+  ("Generated with …", `Co-Authored-By: Claude …`, `Claude-Session: …`) to PR
+  bodies, commit messages, or any repository content.
 
 ## Project constraints
 
@@ -120,7 +126,7 @@ appropriate); committed with a conventional message. Anything less is not done.
 ## Long-term roadmap
 
 1. ✅ Card Database Service (Scryfall client, cache, domain model)
-2. Scryfall bulk-data import + offline card index (prereq for vision at scale)
+2. ✅ Scryfall bulk-data import + offline card index (prereq for vision at scale)
 3. Engine Service: JVM wrapper embedding XMage; Engine Adapter API
    (create game / legal actions / propose action / state views / action log)
 4. Match Service + Networking Gateway (WebSocket, action-log fan-out, reconnect)

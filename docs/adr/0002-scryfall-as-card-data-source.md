@@ -31,7 +31,9 @@ Integration rules (from Scryfall's API documentation):
    an injectable interface so in-memory can be swapped for Redis/disk.
 4. **Bulk data for volume:** any workload needing many cards (vision index, deck
    import, offline play) must use Scryfall's daily bulk-data files, not API crawling.
-   (Planned as a follow-up feature; the interface accommodates it.)
+   Implemented by `BulkDataManager`/`OfflineCardIndex`: the oracle_cards export is
+   downloaded only when Scryfall's `updated_at` changes, then served entirely from
+   memory through the same `CardResolver` interface as the online service.
 5. **Image policy:** `art_crop` images require artist + copyright attribution in the
    same interface; card data must never be paywalled.
 
